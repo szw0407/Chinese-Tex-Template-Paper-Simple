@@ -1,16 +1,7 @@
 \documentclass{article}
 
 % 中文支持设置
-\usepackage{xeCJK}
-\usepackage{indentfirst} % Add indentfirst package for first paragraph indentation
-\setlength{\parindent}{2em} % Set paragraph indentation to 2em
-\setCJKmainfont[BoldFont=SimHei,ItalicFont=KaiTi,AutoFakeBold=true,BoldItalicFont=SimHei]{SimSun} % 设置中文字体为宋体，粗体使用黑体
-\setCJKsansfont[BoldFont=SimHei]{SimHei} % 设置中文无衬线字体为黑体
-\setCJKmonofont[BoldFont=SimHei]{SimSun} % 设置中文等宽字体
-\newCJKfontfamily\heiti[BoldFont=SimHei]{SimHei} % 设置黑体字体命令
-\newCJKfontfamily\kaishu{KaiTi} % 设置楷体字体命令
-\newCJKfontfamily\fangsong{FangSong} % 设置仿宋字体命令
-\newCJKfontfamily\lishu{LiShu} % 设置隶书字体命令
+\usepackage[UTF8, indent]{ctex} % Added 'indent' option for paragraph indentation
 
 % 页面设置
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
@@ -45,9 +36,9 @@
 \renewcommand{\tablename}{表}
 \renewcommand{\appendixname}{附录}
 
-\title{一篇示例文本}
+\title{一篇示例文本 (LuaLaTeX)}
 \author{szw0407}
-\usepackage{hyperref}
+
 \begin{document}
 \maketitle
 
@@ -57,7 +48,6 @@
 在这里，您可以简要介绍您的文档内容、目的和主要结论。摘要通常是读者了解文档主题的第一步，因此请确保它简洁明了。
 摘要通常包括研究的背景、方法、结果和结论。它应该足够简短，以便读者可以快速了解文档的核心内容。
 \end{abstract}
-\newpage
 \tableofcontents
 \newpage
 \section{引言}
@@ -100,7 +90,7 @@
 
 \subsection{如何添加注释和跟踪更改}
 
-可以通过高亮显示一些文本并点击编辑器窗格右上角的"添加注释"来为您的项目添加注释。要查看现有注释，请点击上方工具栏中的审阅菜单。要回复注释，请点击注释右下角的回复按钮。当您暂时完成审阅时，可以通过点击工具栏上的名称来关闭审阅窗格。
+可以通过高亮显示一些文本并点击编辑器窗格右上角的'''添加注释'''来为您的项目添加注释。要查看现有注释，请点击上方工具栏中的审阅菜单。要回复注释，请点击注释右下角的回复按钮。当您暂时完成审阅时，可以通过点击工具栏上的名称来关闭审阅窗格。
 
 跟踪更改功能在我们所有的\href{https://www.overleaf.com/user/subscription/plans}{高级计划}中都可用，可以使用审阅窗格顶部的选项来开启或关闭。跟踪更改允许您跟踪对文档所做的每一项更改，以及进行更改的人员。
 
@@ -502,36 +492,12 @@ $\vec{a}$ & \verb|\vec{a}| & 向量 & & & & & & \\
 \toprule
 \textbf{常数名称} & \textbf{符号} & \textbf{代码} \\
 \midrule
-圆周率 & $\pi \approx 3.14159$ & \verb|\pi| \\
-自然对数底 & $e \approx 2.71828$ & \verb|e| \\
-虚数单位 & $i^2 = -1$ & \verb|i| \\
-无穷大 & $\infty$ & \verb|\infty| \\
-空集 & $\emptyset$ & \verb|\emptyset| \\
-偏微分算子 & $\partial$ & \verb|\partial| \\
-梯度算子 & $\nabla$ & \verb|\nabla| \\
+圆周率 & $\pi$ & \verb|\pi| \\
+自然对数的底 & $e$ & \verb|e| \\
+欧拉常数 & $\gamma$ & \verb|\gamma| \\
+黄金分割比 & $\phi$ & \verb|\phi| \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\subsection{快速参考卡片}
-
-\begin{table}[H]
-\centering
-\fbox{
-\begin{minipage}{0.9\textwidth}
-\textbf{LaTeX数学模式快速提示：}
-\begin{itemize}
-\item 行内公式：\texttt{\$...\$} 或 \texttt{\textbackslash(...\textbackslash)}
-\item 行间公式：\texttt{\textbackslash[...\textbackslash]} 或 \texttt{\$\$...\$\$}
-\item 编号公式：\texttt{\textbackslash begin\{equation\}...\textbackslash end\{equation\}}
-\item 多行公式：\texttt{\textbackslash begin\{align\}...\textbackslash end\{align\}}
-\item 矩阵：\texttt{\textbackslash begin\{pmatrix\}...\textbackslash end\{pmatrix\}}
-\item 分式：\texttt{\textbackslash frac\{分子\}\{分母\}}
-\item 上下标：\texttt{x\textasciicircum\{上标\}\textunderscore\{下标\}}
-\item 根号：\texttt{\textbackslash sqrt[n]\{x\}}
-\end{itemize}
-\end{minipage}
-}
-\caption{LaTeX数学模式快速参考}
-\end{table}
 \end{document}
