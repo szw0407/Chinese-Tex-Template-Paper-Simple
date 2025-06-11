@@ -2,14 +2,13 @@
 
 % 中文支持设置
 \usepackage{xeCJK}
-\setCJKmainfont[BoldFont=SimHei,ItalicFont=KaiTi]{SimSun} % 设置中文字体为宋体，粗体使用黑体
-\setCJKsansfont{SimHei} % 设置中文无衬线字体为黑体
-\setCJKmonofont{SimSun} % 设置中文等宽字体
+\setCJKmainfont[BoldFont=SimHei,ItalicFont=KaiTi,AutoFakeBold=true,BoldItalicFont=SimHei]{SimSun} % 设置中文字体为宋体，粗体使用黑体
+\setCJKsansfont[BoldFont=SimHei]{SimHei} % 设置中文无衬线字体为黑体
+\setCJKmonofont[BoldFont=SimHei]{SimSun} % 设置中文等宽字体
 \newCJKfontfamily\heiti[BoldFont=SimHei]{SimHei} % 设置黑体字体命令
 \newCJKfontfamily\kaishu{KaiTi} % 设置楷体字体命令
 \newCJKfontfamily\fangsong{FangSong} % 设置仿宋字体命令
-\newCJKfontfamily\lishu{LiSu} % 设置隶书字体命令
-\newCJKfontfamily\yahei{Microsoft YaHei} % 设置微软雅黑字体命令
+\newCJKfontfamily\lishu{LiShu} % 设置隶书字体命令
 
 % 页面设置
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
@@ -23,7 +22,15 @@
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{colortbl}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[colorlinks=true, allcolors=blue, unicode]{hyperref} % 添加 unicode 选项
+\usepackage{listings}
+\usepackage{float} % 添加 float 宏包
+\usepackage{tocbibind} % 添加 tocbibind 宏包
+\lstset{
+      basicstyle=\ttfamily, % Use a monospaced font, similar to \verb
+      breaklines=true,      % Allow automatic line breaking
+      breakatwhitespace=false % Allow breaking anywhere, not just at spaces
+}
 
 % 中文标签设置
 \renewcommand{\abstractname}{摘要}
@@ -36,16 +43,20 @@
 \renewcommand{\tablename}{表}
 \renewcommand{\appendixname}{附录}
 
-\title{一篇论文}
-\author{我}
+\title{一篇示例文本}
+\author{szw0407}
 \usepackage{hyperref}
 \begin{document}
 \maketitle
 
 \begin{abstract}
-这是一个摘要
-\end{abstract}
+这是一个摘要。
 
+在这里，您可以简要介绍您的文档内容、目的和主要结论。摘要通常是读者了解文档主题的第一步，因此请确保它简洁明了。
+摘要通常包括研究的背景、方法、结果和结论。它应该足够简短，以便读者可以快速了解文档的核心内容。
+\end{abstract}
+\tableofcontents
+\newpage
 \section{引言}
 
 您的引言在这里！只需开始编写您的文档并使用重新编译按钮查看更新的PDF预览。下面列出了常用命令和功能的示例，以帮助您入门。
@@ -231,12 +242,18 @@ Overleaf支持许多不同的语言，包括在一个文档中使用多种不同
 
 我们希望您觉得Overleaf有用，并且请查看我们的\href{https://www.overleaf.com/learn}{帮助库}获取更多教程和用户指南！如果您有任何反馈，请使用Overleaf菜单底部的\textbf{联系我们}链接，或使用\url{https://www.overleaf.com/contact}的联系表单。
 
+\section{致谢}
+
+在此文档的撰写过程中，我要特别感谢GitHub Copilot提供的智能编程辅助。作为一个AI编程助手，GitHub Copilot在代码生成、语法提示和问题解决方面给予了巨大帮助，显著提高了文档编写和代码开发的效率。
+
+感谢GitHub Copilot团队开发了如此优秀的AI工具，让编程工作变得更加高效和愉快。
+
 \bibliographystyle{alpha}
 \bibliography{sample}
+
 \appendix
 \section{附录}
 本节包含一些附加信息和示例，供需要时参考。
-
 \section{LaTeX特殊符号速查表}
 
 本节提供常用的LaTeX特殊符号速查表，方便快速查找和使用。
@@ -244,7 +261,7 @@ Overleaf支持许多不同的语言，包括在一个文档中使用多种不同
 \subsection{数学符号}
 
 \subsubsection{希腊字母}
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
@@ -284,7 +301,8 @@ $\ll$ & \verb|\ll| & 远小于 & $\gg$ & \verb|\gg| & 远大于 \\
 \end{center}
 
 \subsubsection{集合与逻辑符号}
-\begin{longtable}{|p{2cm}|p{3cm}|p{2cm}|p{3cm}|p{2cm}|p{3cm}|}
+% 对于 longtable，它默认会尽可能保持在当前位置，如果需要更强的固定，可能需要其他方法或重构为 standard table
+\begin{longtable}{|p{1.5cm}|p{2cm}|p{1.5cm}|p{2cm}|p{1.5cm}|p{2cm}|}
 \hline
 \multicolumn{6}{|c|}{\textbf{集合与逻辑符号对照表}} \\
 \hline
@@ -305,9 +323,9 @@ $\forall$ & \verb|\forall| & $\implies$ & \verb|\implies| & $\iff$ & \verb|\iff|
 \end{longtable}
 
 \subsubsection{积分与微分符号}
-\begin{table}[h]
+\begin{table}[H]
 \centering
-\begin{tabular}{>{\centering\arraybackslash}p{3cm}>{\centering\arraybackslash}p{4cm}>{\centering\arraybackslash}p{3cm}>{\centering\arraybackslash}p{4cm}}
+\begin{tabular}{>{\centering\arraybackslash}p{2cm}>{\centering\arraybackslash}p{3cm}>{\centering\arraybackslash}p{2cm}>{\centering\arraybackslash}p{3cm}}
 \toprule
 \textbf{符号} & \textbf{代码} & \textbf{符号} & \textbf{代码} \\
 \midrule
@@ -324,7 +342,7 @@ $\partial$ & \verb|\partial| & $\nabla$ & \verb|\nabla| \\
 
 \subsubsection{箭头符号}
 \renewcommand{\arraystretch}{1.5}
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{@{}lll@{}}
 \toprule
@@ -347,7 +365,7 @@ $\Leftrightarrow$ \verb|\Leftrightarrow| & $\Updownarrow$ \verb|\Updownarrow| & 
 \subsection{文本符号}
 
 \subsubsection{标点符号}
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|>{\columncolor{gray!20}}c|c|p{4cm}|p{4cm}|}
 \hline
@@ -370,7 +388,7 @@ $\Leftrightarrow$ \verb|\Leftrightarrow| & $\Updownarrow$ \verb|\Updownarrow| & 
 \end{table}
 
 \subsubsection{特殊字符}
-\begin{table}[h]
+\begin{table}[H]
 \small
 \centering
 \begin{tabular}{*{6}{c}}
@@ -390,7 +408,7 @@ $\Leftrightarrow$ \verb|\Leftrightarrow| & $\Updownarrow$ \verb|\Updownarrow| & 
 \subsection{数学字体}
 
 \subsubsection{字体样式对比}
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{>{\bfseries}l|c|>{\ttfamily}l}
 \hline
@@ -431,19 +449,20 @@ $\vec{a}$ & \verb|\vec{a}| & 向量 & & & & & & \\
 \subsection{大型符号与括号}
 
 \subsubsection{自适应括号示例}
-\begin{table}[h]
+\begin{table}[H]
 \centering
-\begin{tabular}{>{\centering}p{4cm}>{\centering}p{6cm}>{\centering\arraybackslash}p{4cm}}
+\renewcommand{\arraystretch}{2.0}
+\begin{tabular}{>{\centering}p{2cm}>{\centering}p{2cm}>{\centering\arraybackslash}p{8cm}}
 \hline
 \textbf{括号类型} & \textbf{自适应效果} & \textbf{代码} \\
 \hline
-圆括号 & $\left(\frac{a}{b}\right)$ & \verb|\left(\frac{a}{b}\right)| \\
+圆括号 & $\left(\frac{a}{b}\right)$ & \lstinline|\left(\frac{a}{b}\right)| \\
 \hline
-方括号 & $\left[\frac{x^2}{y^2}\right]$ & \verb|\left[\frac{x^2}{y^2}\right]| \\
+方括号 & $\left[\frac{x^2}{y^2}\right]$ & \lstinline|\left[\frac{x^2}{y^2}\right]| \\
 \hline
-花括号 & $\left\{\frac{\sin x}{\cos x}\right\}$ & \verb|\left\{\frac{\sin x}{\cos x}\right\}| \\
+花括号 & $\left\{\frac{a}{b}\right\}$ & \lstinline|\left\{\frac{a}{b}\right\}| \\
 \hline
-角括号 & $\left\langle\frac{\alpha}{\beta}\right\rangle$ & \verb|\left\langle\frac{\alpha}{\beta}\right\rangle| \\
+角括号 & $\left\langle\frac{a}{b}\right\rangle$ & \lstinline|\left\langle\frac{a}{b}\right\rangle| \\
 \hline
 \end{tabular}
 \caption{自适应括号效果对比}
@@ -452,7 +471,7 @@ $\vec{a}$ & \verb|\vec{a}| & 向量 & & & & & & \\
 \subsection{单位与常数}
 
 \subsubsection{物理单位速查}
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{||c|c||c|c||c|c||}
@@ -493,7 +512,7 @@ $\vec{a}$ & \verb|\vec{a}| & 向量 & & & & & & \\
 
 \subsection{快速参考卡片}
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \fbox{
 \begin{minipage}{0.9\textwidth}
