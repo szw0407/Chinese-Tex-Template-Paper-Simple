@@ -2,6 +2,12 @@
 
 这是一个简单的中文LaTeX论文模板，使用XeTeX编译引擎以支持中文字体。
 
+本文基于 Overleaf 的默认模板进行了修改，适用于撰写中文论文、报告或学位论文。
+
+请注意本模板使用了 XeLaTeX 编译器，因此需要确保您的 LaTeX 环境支持 XeTeX。
+
+此外，由于 Overleaf 的免费版本只有 20s 的编译时间限制，或许无法在线编译。不过本项目暂时也不面对 Overleaf 优化。
+
 ## 特性
 
 - 使用XeTeX编译引擎
@@ -29,6 +35,9 @@ compile.bat
 确保系统中安装了以下中文字体：
 - 宋体 (SimSun)
 - 黑体 (SimHei)
+- 楷体 (KaiTi)
+- 仿宋 (FangSong)
+- 隶书 (LiShu)
 
 如果您的系统使用不同的字体名称，请在main.tex中相应修改`\setCJKmainfont`和`\setCJKsansfont`的设置。
 
