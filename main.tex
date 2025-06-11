@@ -2,9 +2,14 @@
 
 % 中文支持设置
 \usepackage{xeCJK}
-\setCJKmainfont[BoldFont=SimHei]{SimSun} % 设置中文字体为宋体，粗体使用黑体
+\setCJKmainfont[BoldFont=SimHei,ItalicFont=KaiTi]{SimSun} % 设置中文字体为宋体，粗体使用黑体
 \setCJKsansfont{SimHei} % 设置中文无衬线字体为黑体
 \setCJKmonofont{SimSun} % 设置中文等宽字体
+\newCJKfontfamily\heiti[BoldFont=SimHei]{SimHei} % 设置黑体字体命令
+\newCJKfontfamily\kaishu{KaiTi} % 设置楷体字体命令
+\newCJKfontfamily\fangsong{FangSong} % 设置仿宋字体命令
+\newCJKfontfamily\lishu{LiSu} % 设置隶书字体命令
+\newCJKfontfamily\yahei{Microsoft YaHei} % 设置微软雅黑字体命令
 
 % 页面设置
 \usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
