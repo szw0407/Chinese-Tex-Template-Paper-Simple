@@ -1,0 +1,19 @@
+% keywords.sty - 关键词环境定义
+% 用于中文学术论文的关键词格式化
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{keywords}[2025/06/12 Keywords environment for Chinese academic papers]
+
+% 定义关键词环境，使用与摘要完全相同的样式
+\newenvironment{keywords}
+{%
+      \begin{center}
+            \bfseries 关键词
+      \end{center}
+      \quotation
+}
+{%
+      \endquotation
+}
+
+\endinput
